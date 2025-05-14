@@ -1,0 +1,9 @@
+data/
+.venv/
+.git*
+.DS_Store
+.clinerules
+.dockerignore
+.env*
+.ruff_cache/
+.vscode/
