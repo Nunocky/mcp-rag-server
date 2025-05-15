@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "--help" || "$1" == "-h" || $# -eq 0 ]]; then
+  cat <<EOF
+Usage: ./rag_cli [COMMAND] [OPTIONS]
+
+MCP RAG Server CLI ヘルパースクリプト
+
+主なコマンド:
+  index         ドキュメントのインデックス化
+  clear         インデックスのクリア
+  count         インデックス内のドキュメント数を取得
+
+例:
+  ./rag_cli index
+  ./rag_cli index --directory ./path/to/documents
+  ./rag_cli index --chunk-size 300 --chunk-overlap 50
+  ./rag_cli index --incremental
+  ./rag_cli clear
+  ./rag_cli count
+
+このスクリプトは docker exec 経由で mcp-rag-server-app-1 コンテナ内の
+python -m src.cli に引数をそのまま渡します。
+
+詳細は README.md を参照してください。
+EOF
+  exit 0
+fi
+
+docker exec -i mcp-rag-server-app-1 python -m src.cli "$@"
+
