@@ -19,8 +19,8 @@ COPY . /opt/mcp-rag-server/
 WORKDIR /opt/mcp-rag-server
 RUN python3 -m venv .venv
 ENV PATH="/opt/mcp-rag-server/.venv/bin:$PATH"
-RUN pip install uv
-RUN uv sync
+RUN pip install uv && pip cache purge
+RUN uv sync && uv cache clean
 
 RUN chmod +x /opt/mcp-rag-server/docker/entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "/opt/mcp-rag-server/docker/entrypoint.sh" ]

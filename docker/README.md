@@ -7,14 +7,10 @@
 `mcp-rag-server` ディレクトリ上で実行
 
 ```bash
-docker compose -p mcp-rag-server -f docker/compose.yml up -d --build
+./setup.sh
 ```
 
-### first run
-
-```bash
-docker exec -i mcp-rag-server-app-1 uv run --directory /opt/mcp-rag-server python -m src.main
-```
+## データ
 
 ディレクトリ `data` にデータを配置します。このディレクトリはコンテナの `/opt/data`にマウントされます。
 

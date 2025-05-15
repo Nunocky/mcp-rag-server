@@ -1,12 +1,12 @@
 services:
   db:
     image: pgvector/pgvector:pg14
-    environment:
-      POSTGRES_HOST: localhost
-      POSTGRES_PORT: 5432
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: ragdb
+    # environment:
+    # POSTGRES_HOST: localhost
+    # POSTGRES_PORT: 5432
+    # POSTGRES_USER: postgres
+    # POSTGRES_PASSWORD: password
+    # POSTGRES_DB: ragdb
     ports:
       - "5432:5432"
     volumes:
@@ -29,5 +29,5 @@ services:
       - db
     volumes:
       - ./data:/opt/data
-volumes:
-  pgdata:
+# volumes:
+#   pgdata:
